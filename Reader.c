@@ -10,7 +10,7 @@ int main(){
 
     // Open a named pipe in read mode
     int status;
-    status = open("/home/noob_coder/Desktop/P 3 S 2/OS/NamedPipe", O_RDONLY);
+    status = open("/home/noob_coder/Desktop/P3S2/OS/NamedPipe", O_RDONLY);
     if(status < 0){
         perror("File Open: ");
         exit(EXIT_FAILURE);

@@ -15,7 +15,7 @@ int main(){
 
     // Open a named pipe in read mode
     int status;
-    char *named_pipe_path = "/home/noob_coder/Desktop/P 3 S 2/OS/NamedPipe";
+    char *named_pipe_path = "/home/noob_coder/Desktop/P3S2/OS/NamedPipe";
     status = open(named_pipe_path, O_WRONLY);
 
     if(status < 0){
