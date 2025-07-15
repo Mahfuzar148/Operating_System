@@ -12,6 +12,7 @@
 
 ## 🎯 **Objective:**
 
+
 * Create a main process named `parent_process`.
 * Spawn 3 child processes (no grandchildren).
 * Each child process performs one arithmetic operation (Addition, Subtraction, Multiplication) on two variables initialized in the parent.
