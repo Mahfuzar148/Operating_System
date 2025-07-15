@@ -20,6 +20,57 @@
 
 ---
 
+
+// Write a C program to create a main process named ‘parent_process’ having 3
+// child processes without any grandchildren processes.
+// Trace parent and child processes in the process tree.
+// Show that child processes are doing addition, subtraction and multiplication
+// on two variables initialized in the parent_process
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+
+int main() {
+    int a = 10, b = 5;
+    pid_t pid1, pid2, pid3;
+
+    printf("Parent process started (Name: parent_process, PID: %d)\n", getpid());
+
+    pid1 = fork();
+    if (pid1 == 0) {
+        printf("Child process (Name: child_1, PID: %d, PPID: %d) - ADDITION\n", getpid(), getppid());
+        printf("Result: %d + %d = %d\n", a, b, a + b);
+        exit(0);
+    }
+
+    pid2 = fork();
+    if (pid2 == 0) {
+        printf("Child process (Name: child_2, PID: %d, PPID: %d) - SUBTRACTION\n", getpid(), getppid());
+        printf("Result: %d - %d = %d\n", a, b, a - b);
+        exit(0);
+    }
+
+    pid3 = fork();
+    if (pid3 == 0) {
+        printf("Child process (Name: child_3, PID: %d, PPID: %d) - MULTIPLICATION\n", getpid(), getppid());
+        printf("Result: %d * %d = %d\n", a, b, a * b);
+        exit(0);
+    }
+
+    wait(NULL);
+    wait(NULL);
+    wait(NULL);
+
+    printf("Parent process (PID: %d) finished.\n", getpid());
+
+    return 0;
+}
+
+
 ## 📄 **Code with Explanation:**
 
 ```c
